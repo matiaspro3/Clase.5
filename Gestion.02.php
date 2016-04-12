@@ -67,6 +67,7 @@ if($accion=="ingreso")
 	$archivo=fopen("ticket.txt", "a");
 	fwrite($archivo, $patente."@@@@".$ahora."@@@@".$archivo_destino2."\n");
 	fclose($archivo);
+
 }
 else
 {
@@ -127,6 +128,21 @@ else
 
 
 }
+echo "llego";
+$archivo=fopen("ticket.txt", "r");
+
+while (!feof($archivo)) {
+ 		$renglon=fgets($archivo);
+ 		$auto=explode("@@@@", $renglon);
+ 		if ($auto[0]!="")
+ 		echo" <br><br><br>".$auto[0]."--".$auto[1]."--".$auto[2];
+ 	//	if ($auto[0]!="")
+ //				$listaDeAutos[]=$auto;
+
+ 	}
+ 	fclose($archivo);
+
+
 ?>
 <br>
 <br>
