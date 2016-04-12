@@ -23,10 +23,25 @@
 
 //var_dump($_FILES['name']);
 
-$archivo_destino="Fotitos/".$_FILES['fotoAutito']['name'];
-var_dump($archivo_destino);
+
+//var_dump($archivo_destino);
+	
 //move_uploaded_file(ruta TEmporal Del Servidor,destino creado arriba)
-move_uploaded_file($_FILES['fotoAutito']['tmp_name'], $archivo_destino);
+	//$archivo_destino="Fotitos/".$_FILES['fotoAutito']['name'];
+//move_uploaded_file($_FILES['fotoAutito']['tmp_name'], $archivo_destino);
+
+
+
+
+
+//grabar el archivo con el nombre de la patente mas la exten. que le doy.
+$archivo_ext=$_FILES['fotoAutito']['name'];
+$archivo_ext2=explode(".", $archivo_ext);
+$patente=$_POST['patente'];
+$archivo_destino2="Fotitos/".$patente.".".$archivo_ext2[1];
+//var_dump($archivo_destino2);
+//move_uploaded_file(ruta TEmporal Del Servidor,destino creado arriba)
+move_uploaded_file($_FILES['fotoAutito']['tmp_name'], $archivo_destino2);
 
 
 
