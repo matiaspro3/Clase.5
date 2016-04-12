@@ -128,19 +128,42 @@ else
 
 
 }
-echo "llego";
+/* crea la tabla*/
+
+$archivo=fopen("ticket.txt", "r");
+echo "<table border=1>";
+echo "<TH> Patente </TH><TH> Fecha </TH><TH> Foto </TH>";	//th =columnas ..tr=filas...td=datos
+while (!feof($archivo)) {
+ 		$renglon=fgets($archivo);
+ 		$auto=explode("@@@@", $renglon);
+ 		if ($auto[0]!="")
+ 		{
+ 			echo "<tr>";
+ 		    //echo"<td>$auto[0]</td><td>$auto[1]</td><td>$auto[2]</td>";
+ 			//para mostras foto
+ 			echo"<td>$auto[0]</td><td>$auto[1]</td><td><img src=$auto[2] height=150 wight=150 ></td>"; // le agreggo el hig y el wight para que sea mas chicas
+ 			echo "</tr>";
+ 		}
+ 	}
+ 	fclose($archivo);
+echo "</table>"
+/* crea la tabla*/
+
+/*muetsra las cosas 
+
 $archivo=fopen("ticket.txt", "r");
 
 while (!feof($archivo)) {
  		$renglon=fgets($archivo);
  		$auto=explode("@@@@", $renglon);
  		if ($auto[0]!="")
- 		echo" <br><br><br>".$auto[0]."--".$auto[1]."--".$auto[2];
- 	//	if ($auto[0]!="")
- //				$listaDeAutos[]=$auto;
-
+ 		//echo" <br><br><br>".$auto[0]."--".$auto[1]."--".$auto[2];
+ 		
+ 	
  	}
  	fclose($archivo);
+
+muetsra las cosas */
 
 
 ?>
