@@ -16,7 +16,7 @@
 	<body>
     <div class="CajaUno animated bounceInDown">
 
-            <form action="gestion.php" method="post" enctype="multipart/form-data">
+            <form action="Gestion.02.php" method="post" enctype="multipart/form-data">
             
             <input type="text" name="patente"  id="autocomplete"/>
             <br>

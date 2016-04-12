@@ -32,7 +32,7 @@
 
 
 
-
+/*
 
 //grabar el archivo con el nombre de la patente mas la exten. que le doy.
 $archivo_ext=$_FILES['fotoAutito']['name'];
@@ -42,7 +42,7 @@ $archivo_destino2="Fotitos/".$patente.".".$archivo_ext2[1];
 //var_dump($archivo_destino2);
 //move_uploaded_file(ruta TEmporal Del Servidor,destino creado arriba)
 move_uploaded_file($_FILES['fotoAutito']['tmp_name'], $archivo_destino2);
-
+*/
 
 
 
@@ -59,6 +59,11 @@ $listaAx=array();
 if($accion=="ingreso")
 {
 	echo "Se guardo la patente $patente";
+	$archivo_ext=$_FILES['fotoAutito']['name'];
+	$archivo_ext2=explode(".", $archivo_ext);
+	$archivo_destino2="Fotitos/".$patente.".".$archivo_ext2[1];
+	move_uploaded_file($_FILES['fotoAutito']['tmp_name'], $archivo_destino2);
+
 	$archivo=fopen("ticket.txt", "a");
 	fwrite($archivo, $patente."@@@@".$ahora."@@@@".$archivo_destino2."\n");
 	fclose($archivo);
@@ -104,7 +109,7 @@ else
 
  			$archivo=fopen("ticket.txt", "w");
  			foreach ($listaAx as $auto) {
- 				fwrite($archivo, $auto[0]."@@@@".$auto[1]);
+ 				fwrite($archivo, $auto[0]."@@@@".$auto[1]."@@@@".$archivo_destino2."\n");
 				
 
  			}	fclose($archivo);
