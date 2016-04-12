@@ -12,9 +12,28 @@
 	el boton que me redirija al index  
 	3- guardar todo lo facturado en facturado.txt*/
 //var_dump($_POST['estacionar']);
-var_dump($_POST);
-var_dump($_FILES);
+//var_dump($_POST);
+
+//var_dump($_FILES);
+
+//var_dump($_FILES['name']);
+
+//------------------------------------------cargar foto--------------------
+//var_dump($_FILES);
+
+//var_dump($_FILES['name']);
+
+$archivo_destino="Fotitos/".$_FILES['fotoAutito']['name'];
+var_dump($archivo_destino);
+//move_uploaded_file(ruta TEmporal Del Servidor,destino creado arriba)
+move_uploaded_file($_FILES['fotoAutito']['tmp_name'], $archivo_destino);
+
+
+
+
+
 die();
+//------------------------------------------cargar foto fin--------------------
 $accion=$_POST['estacionar'];
 $patente=$_POST['patente'];
 $ahora=date("y-m-d h:i:s");
